@@ -17,6 +17,8 @@ export default {
 
 .new {
   position: absolute;
+  top: 15px;
+  left: 15px;
   .button {
     height: 32px;
     line-height: 32px;

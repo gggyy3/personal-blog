@@ -2,7 +2,7 @@
   <div class="home">
     <Page>
       <header>
-        <NewBlog>
+        <NewBlog class="test">
           <span>新建</span>
         </NewBlog>
         <div class="post-title">创建您的第一篇个人博客吧</div>
@@ -37,14 +37,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header {
-  text-align: center;
-  font-size: 1.5em;
-  margin-bottom: 60px;
-  .post-data {
-    margin-top: 3px;
-    font-size: 0.6em;
-    color: #999;
+.home {
+  position: relative;
+  header {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 60px;
+    .post-data {
+      margin-top: 3px;
+      font-size: 0.6em;
+      color: #999; 
+    }
+  }
+  @media (max-width:500px) {
+    .test {
+      top: 5px;
+      left: 5px;
+      font-size: 15px;
+    }
   }
 }
 </style>
