@@ -38,6 +38,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~@/assets/style/modeSwitch.scss";
+
 h3 {
   overflow: hidden;
 }
@@ -51,7 +53,7 @@ content {
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 6%),
       0 1px 5px 0 rgb(0 0 0 / 12%);
     text-align: center;
-    background-color: white;
+    background-color: $white;
     color: #606266;
     min-width: 30px;
     border-radius: 2px;

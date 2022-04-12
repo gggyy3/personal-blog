@@ -2,7 +2,9 @@
   <div class="home">
     <Page>
       <header>
-        <NewBlog />
+        <NewBlog>
+          <span>新建</span>
+        </NewBlog>
         <div class="post-title">创建您的第一篇个人博客吧</div>
         <div class="post-data">发布于 2022-04-11 | 作者：gy</div>
       </header>

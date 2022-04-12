@@ -12,7 +12,8 @@
 
 #app {
   display: flex;
-  padding: 0 126px;
+  align-items: start; // 解决 Nav 组件自适应问题
+  padding: 0 200px;
   border-top: 3px solid black;
 }
 

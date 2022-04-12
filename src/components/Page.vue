@@ -11,9 +11,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~@/assets/style/modeSwitch.scss";
+
 .page {
   position: relative;
-  background: white;
+  background: $white;
   padding: 40px;
   margin-bottom: 10px;
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 6%),
