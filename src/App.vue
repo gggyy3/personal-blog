@@ -18,6 +18,5 @@
 
 main {
   width: calc(100% - 252px);
-  
 }
 </style>
