@@ -5,21 +5,25 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    articleList: [], // articleList: [{ id: '1', title: '测试标题', content: '测试正文' }]
+    // 数据结构: [{ id: '1', title: '测试标题', content: '测试正文', createdAt:'2022/4/11' }]
+    articleList: [],
   },
-  mutations: { 
+  mutations: {
     increment(state, pageList) {
-      if (pageList === null) {
-        console.log('添加数据为空！')
-        return
+      console.log(pageList);
+
+      // 错误处理，有时调用 state.articleList 为空
+      if (state.articleList === null) {
+        console.log(state.articleList);
+        console.log("初始数据有误");
+        state.articleList = [];
       }
+
       state.articleList.push(pageList);
     },
-    fetchData() {
-      this.state.articleList = JSON.parse(
-        window.localStorage.getItem("testList")
-      );
-    }
+    fetchData(state) {
+      state.articleList = JSON.parse(window.localStorage.getItem("testList"));
+    },
   },
 });
 

@@ -37,8 +37,12 @@ export default {
         alert("输入标题和内容不能为空");
         return;
       }
+
+      // 基础信息
       this.id = createId();
       this.createdAt = dayjs().format("YYYY/MM/DD");
+
+      // 更新vuex 中的数据
       this.$store.commit("increment", {
         id: this.id,
         title: this.title,
@@ -46,10 +50,13 @@ export default {
         createdAt: this.createdAt,
       });
 
+      // 将数据存储至 localStorage
       window.localStorage.setItem(
         "testList",
-        JSON.stringify(this.$store.state.articleList)
+        JSON.stringify(this.$store.state.articleList) // 新数据覆盖旧数据
       );
+
+      // 成功提示及跳转
       alert("添加成功");
       this.$router.replace("/docs");
     },
