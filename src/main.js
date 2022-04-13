@@ -8,6 +8,7 @@ import Home from '@/views/Home.vue'
 import Docs from '@/views/Docs.vue'
 import Page from '@/components/Page.vue'
 import NewBlog from '@/components/NewBlog.vue'
+import Pagination from '@/components/Pagination.vue'
 import TEditor from '@/components/TEditor.vue'
 
 Vue.config.productionTip = false
@@ -18,6 +19,7 @@ Vue.component("Home", Home);
 Vue.component("Page", Page);
 Vue.component("Docs", Docs);
 Vue.component('TEditor',TEditor)
+Vue.component('Pagination',Pagination)
 
 new Vue({
   router,

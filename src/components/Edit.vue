@@ -5,18 +5,13 @@
         <div class="post-title">编辑文章</div>
         <div class="post-data">正在编写...</div>
       </header>
-      <NewBlog class="test">
-          <span>新建</span>
-        </NewBlog>
       <form class="edit-box">
-        <textarea class="page-title" placeholder="文章标题" v-model="title">
+        <textarea class="page-title" placeholder="标题" v-model="title">
         </textarea>
-        <!-- <textarea class="page-content" placeholder="正文内容" v-model="text">
-        </textarea> -->
-        <TEditor value="fuck" />
+        <textarea class="page-content" placeholder="正文内容" v-model="text">
+        </textarea>
         <button @click="release">发布</button>
       </form>
-      
     </Page>
   </div>
 </template>
@@ -37,7 +32,6 @@ export default {
   },
   methods: {
     release() {
-      console.log(this.text)
       // 发布功能
       if (this.text === "" || this.title === "") {
         alert("输入标题和内容不能为空");
@@ -51,6 +45,7 @@ export default {
         content: this.text,
         createdAt: this.createdAt,
       });
+
       window.localStorage.setItem(
         "testList",
         JSON.stringify(this.$store.state.articleList)
@@ -85,6 +80,7 @@ header {
     width: 20%;
     height: 30px;
     line-height: 30px;
+    outline: none;
   }
   .page-content {
     height: 200px;

@@ -1,13 +1,18 @@
 <template>
   <div class="activeConfig">
     <div class="activeConfig-container">
-      <Editor id="tinymce" v-model="tinymceHtml" :init="editorInit" />
+      <Editor id="tinymce" v-model="tinymceHtml" :init="editorInit" @input="test($event)"/>
     </div>
   </div>
 </template>
 
 <script>
+// var activeEditor = tinymce.activeEditor; 
+// var editBody = activeEditor.getBody(); 
+// activeEditor.selection.select(editBody); 
+// var text = activeEditor.selection.getContent( { 'format' : 'text' } );
 // 引入组件
+
 import tinymce from "tinymce/tinymce";
 import Editor from "@tinymce/tinymce-vue";
 // 引入富文本编辑器主题的js和css
@@ -137,7 +142,13 @@ export default {
       autoresize_max_height: 800,
     });
   },
-  methods: {},
+  methods: {
+    test(value){
+      console.log(value)
+      // console.log(typeof(value))
+      
+    }
+  },
 };
 </script>
 

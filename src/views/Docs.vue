@@ -2,7 +2,7 @@
   <div>
     <Page>
       <h2>博客列表</h2>
-      <div v-for="(i, index) in articleList" :key="index">
+      <div v-for="(i, index) in pageData" :key="index">
         <h3>
           <router-link :to="`/docs/${i.id}`">{{ i.title }}</router-link>
         </h3>
@@ -10,30 +10,36 @@
         <div class="content">博客内容：{{ i.content }}</div>
       </div>
     </Page>
-    <ul class="pagination">
-      <li @click="change">1</li>
-      <li @click="change">2</li>
-    </ul>
+    <Pagination :data="pageData" @add="getData($event)"/>
   </div>
 </template>
 
 <script>
+import Pagination from '../components/Pagination.vue';
 export default {
+  components: { Pagination },
   name: "Docs",
-  methods: {
-    change() {
-      console.log(this.testList)
-    },
+  beforeCreate(){
+    // 数据初始化，防止刷新后数据未显示
+    this.$store.commit("fetchData");
   },
   created() {
-    this.$store.commit("fetchData");
+    // 提醒用户
+    if(this.$store.state.articleList === null){
+      alert('您未添加文章，请前往主页点击新建')
+      this.$router.replace("/home");
+    }
   },
   data() {
     return {
-      articleList: this.$store.state.articleList,
-      testList: this.$store.state.testList
+      pageData: this.$store.state.articleList  // 数据初始化
     };
   },
+  methods: {
+    getData(value){
+      this.pageData = value  // 经过页码改造后的数据
+    }
+  }
 };
 </script>
 
@@ -45,22 +51,5 @@ h3 {
 }
 content {
   overflow: auto;
-}
-.pagination {
-  margin: 0 auto;
-  display: flex;
-  > li {
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 6%),
-      0 1px 5px 0 rgb(0 0 0 / 12%);
-    text-align: center;
-    background-color: $white;
-    color: #606266;
-    min-width: 30px;
-    border-radius: 2px;
-    margin: 0 5px;
-  }
-  > li:hover {
-    cursor: pointer;
-  }
 }
 </style>

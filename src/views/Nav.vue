@@ -12,7 +12,6 @@
       <router-link to="/docs" class="item" active-class="selected"
         >文章</router-link
       >
-      <a class="item" href="#">搜索</a>
       <a class="item" href="#" @click="changeMode">黑夜 / 白天</a>
     </div>
   </nav>
