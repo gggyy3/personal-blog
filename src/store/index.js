@@ -10,12 +10,9 @@ const store = new Vuex.Store({
   },
   mutations: {
     increment(state, pageList) {
-      console.log(pageList);
 
       // 错误处理，有时调用 state.articleList 为空
       if (state.articleList === null) {
-        console.log(state.articleList);
-        console.log("初始数据有误");
         state.articleList = [];
       }
 
